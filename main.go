@@ -17,24 +17,26 @@ type Example struct {
 }
 
 func main() {
-	examples := make(map[int]Example)
-	examples[1] = Example{"List directory", dirTree}
-	examples[2] = Example{"8-bit color matrix", print8BitColorMatrix}
-	examples[3] = Example{"Phrase", printPhrase}
-	examples[4] = Example{"Complex phrases", complexPhrases}
+	examples := [...]Example{
+		{"List directory", dirTree},
+		{"8-bit color matrix", print8BitColorMatrix},
+		{"Phrase", printPhrase},
+		{"Complex phrases", complexPhrases},
+	}
 
 	fmt.Println("Select example:")
 
 	for i, example := range examples {
-		fmt.Printf("%d) %s\n", i, example.Title)
+		fmt.Printf("%d) %s\n", i+1, example.Title)
 	}
 
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
 
 	selectedExample, err := strconv.Atoi(scanner.Text())
+	selectedExample -= 1
 
-	if err != nil || selectedExample <= 0 || selectedExample > len(examples) {
+	if err != nil || selectedExample < 0 || selectedExample > len(examples)-1 {
 		fmt.Println(coloring.Bold("Example not found!"))
 		os.Exit(1)
 	}
