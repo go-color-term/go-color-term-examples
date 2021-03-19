@@ -21,6 +21,7 @@ func main() {
 		{"8-bit color matrix", examples.Print8BitColorMatrix},
 		{"Phrase", examples.SimplePhrase},
 		{"Complex phrases", examples.ComplexPhrases},
+		{"Bright colors (utility extras)", examples.BrightColors},
 	}
 
 	fmt.Println("Select example:")
