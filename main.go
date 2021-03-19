@@ -47,10 +47,14 @@ func main() {
 }
 
 func dirTree() {
-	listContents(".", 0)
+	listContents(".", 0, 3)
 }
 
-func listContents(path string, level int) {
+func listContents(path string, level, depth int) {
+	if depth == 0 {
+		return
+	}
+
 	entries, err := os.ReadDir(path)
 
 	if err != nil {
@@ -72,39 +76,43 @@ func listContents(path string, level int) {
 				walk = path + "/" + walk
 			}
 
-			listContents(walk, level+1)
+			listContents(walk, level+1, depth-1)
 		}
 	}
 }
 
 var colorizeRegularFile = coloring.New().Func()
 var colorizeDirectory = coloring.New().Bold().Underline().Func()
-var colorizeHiddenFile = coloring.New().Black().Bold().Underline().Background().White().Func()
 var colorizeGoFile = coloring.New().Bold().Blue().Func()
 var colorizeTxtFile = coloring.New().Italic().White().Background().Rgb(127, 127, 255).Func()
 var colorizeExecutableFile = coloring.New().Bold().Green().Func()
 
+var colorizeHidden = coloring.New().Color(coloring.BRIGHTBLACK).Bold().Background().White()
+var colorizeHiddenFile = colorizeHidden.Func()
+var colorizeHiddenFolder = colorizeHidden.Underline().Func()
+
 func coloredEntry(entry fs.DirEntry) string {
 	colorizerFunc := colorizeRegularFile
+	isHidden := strings.HasPrefix(entry.Name(), ".")
 
 	if entry.IsDir() {
-		if strings.HasPrefix(entry.Name(), ".") {
-			colorizerFunc = colorizeHiddenFile
+		if isHidden {
+			colorizerFunc = colorizeHiddenFolder
 		} else {
 			colorizerFunc = colorizeDirectory
 		}
 	} else {
-		if strings.HasSuffix(entry.Name(), ".go") {
+		if isHidden {
+			colorizerFunc = colorizeHiddenFile
+		} else if strings.HasSuffix(entry.Name(), ".go") {
 			colorizerFunc = colorizeGoFile
-		}
-
-		if strings.HasSuffix(entry.Name(), ".txt") {
+		} else if strings.HasSuffix(entry.Name(), ".txt") {
 			colorizerFunc = colorizeTxtFile
-		}
-
-		entryInfo, _ := entry.Info()
-		if entryInfo.Mode().String()[3] == 'x' {
-			colorizerFunc = colorizeExecutableFile
+		} else {
+			entryInfo, _ := entry.Info()
+			if entryInfo.Mode().String()[3] == 'x' {
+				colorizerFunc = colorizeExecutableFile
+			}
 		}
 	}
 
