@@ -17,6 +17,7 @@ type Example struct {
 
 func main() {
 	examples := [...]Example{
+		{"Test drive", examples.TestDrive},
 		{"List directory", examples.DirTree},
 		{"8-bit color matrix", examples.Print8BitColorMatrix},
 		{"Phrase", examples.SimplePhrase},
