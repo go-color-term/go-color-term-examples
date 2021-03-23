@@ -1,2 +1,2 @@
-github.com/nelsonghezzi/go-color-term v0.0.0-20210319161333-f6a8c540bcd3 h1:dFMoF6RBtwgar6sK/gP8Hh+jGbLskvepN2TgqEO4anI=
-github.com/nelsonghezzi/go-color-term v0.0.0-20210319161333-f6a8c540bcd3/go.mod h1:+JSLJYm5rYkJPs1CncqoazU8M4PVKH3zzbs/WJaboT8=
+github.com/go-color-term/go-color-term v0.1.0 h1:5CPOoIuUvMo9OPzlJqhtEPwyH93jjO48Q7ltKgpljw4=
+github.com/go-color-term/go-color-term v0.1.0/go.mod h1:ctH2htEmolx6UuS7atbaz6iOfDAn95Bho223iXjC5bc=

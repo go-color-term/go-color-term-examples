@@ -6,8 +6,8 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/nelsonghezzi/go-color-term-examples/examples"
-	"github.com/nelsonghezzi/go-color-term/coloring"
+	"github.com/go-color-term/go-color-term-examples/examples"
+	"github.com/go-color-term/go-color-term/coloring"
 )
 
 type Example struct {

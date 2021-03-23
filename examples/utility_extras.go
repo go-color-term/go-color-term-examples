@@ -3,7 +3,7 @@ package examples
 import (
 	"fmt"
 
-	"github.com/nelsonghezzi/go-color-term/coloring"
+	"github.com/go-color-term/go-color-term/coloring"
 )
 
 func BrightColors() {

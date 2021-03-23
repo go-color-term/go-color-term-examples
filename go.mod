@@ -1,5 +1,5 @@
-module github.com/nelsonghezzi/go-color-term-examples
+module github.com/go-color-term/go-color-term-examples
 
 go 1.16
 
-require github.com/nelsonghezzi/go-color-term v0.0.0-20210319161333-f6a8c540bcd3
+require github.com/go-color-term/go-color-term v0.1.0

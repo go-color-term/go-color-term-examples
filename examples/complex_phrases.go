@@ -1,6 +1,6 @@
 package examples
 
-import "github.com/nelsonghezzi/go-color-term/coloring"
+import "github.com/go-color-term/go-color-term/coloring"
 
 func ComplexPhrases() {
 	coloring.Sentence().

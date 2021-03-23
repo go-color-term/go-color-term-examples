@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/nelsonghezzi/go-color-term/coloring"
+	"github.com/go-color-term/go-color-term/coloring"
 )
 
 const innerBoxSize = 182
