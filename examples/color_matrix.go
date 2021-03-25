@@ -10,7 +10,17 @@ import (
 
 const innerBoxSize = 182
 
-func Print8BitColorMatrix() {
+type ColorMatrixExample struct{}
+
+func (example *ColorMatrixExample) GetTitle() string {
+	return "8-bit color matrix"
+}
+
+func (example *ColorMatrixExample) GetDescription() string {
+	return "Color matrix for the 0-255 (8-bit) colors."
+}
+
+func (example *ColorMatrixExample) Run() {
 	drawBoxHeader()
 
 	for i := 0; i <= 255; i++ {

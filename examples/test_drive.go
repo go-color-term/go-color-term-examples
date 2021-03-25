@@ -6,7 +6,17 @@ import (
 	"github.com/go-color-term/go-color-term/coloring"
 )
 
-func TestDrive() {
+type TestDriveExample struct{}
+
+func (example *TestDriveExample) GetTitle() string {
+	return "Test drive"
+}
+
+func (example *TestDriveExample) GetDescription() string {
+	return "Showcase of all utility.* and utility.Extras.* functions."
+}
+
+func (example *TestDriveExample) Run() {
 	fmt.Println(coloring.Black("Black"))
 	fmt.Println(coloring.Red("Red"))
 	fmt.Println(coloring.Green("Green"))

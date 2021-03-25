@@ -2,7 +2,17 @@ package examples
 
 import "github.com/go-color-term/go-color-term/coloring"
 
-func ComplexPhrases() {
+type ComplexPhrasesExample struct{}
+
+func (example *ComplexPhrasesExample) GetTitle() string {
+	return "Complex phrases"
+}
+
+func (example *ComplexPhrasesExample) GetDescription() string {
+	return "An example showing the styling of sentence using SentenceBuilder."
+}
+
+func (example *ComplexPhrasesExample) Run() {
 	coloring.Sentence().
 		Text("This is ").
 		ColorSet(coloring.GREEN).

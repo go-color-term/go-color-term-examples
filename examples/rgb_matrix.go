@@ -6,7 +6,17 @@ import (
 	"github.com/go-color-term/go-color-term/coloring"
 )
 
-func Rgb_matrix() {
+type RgbColorMatrixExample struct{}
+
+func (example *RgbColorMatrixExample) GetTitle() string {
+	return "24-bit color spectrum"
+}
+
+func (example *RgbColorMatrixExample) GetDescription() string {
+	return "A sampling of colors that can be displayed using RGB (24-bit) color support."
+}
+
+func (example *RgbColorMatrixExample) Run() {
 	index := 0
 
 	for i := 0.0005; i < 1; i += 0.0025 {

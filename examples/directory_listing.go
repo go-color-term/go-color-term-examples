@@ -9,8 +9,20 @@ import (
 	"github.com/go-color-term/go-color-term/coloring"
 )
 
-func DirTree() {
-	listContents(".", 0, 3)
+const depth = 3
+
+type DirectoryListingExample struct{}
+
+func (example *DirectoryListingExample) GetTitle() string {
+	return "Directory listing"
+}
+
+func (example *DirectoryListingExample) GetDescription() string {
+	return fmt.Sprintf("Lists the contents of the current directory up to %d folders depth.", depth-1)
+}
+
+func (example *DirectoryListingExample) Run() {
+	listContents(".", 0, depth)
 }
 
 func listContents(path string, level, depth int) {

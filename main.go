@@ -10,26 +10,27 @@ import (
 	"github.com/go-color-term/go-color-term/coloring"
 )
 
-type Example struct {
-	Title string
-	Func  func()
+type Example interface {
+	GetTitle() string
+	GetDescription() string
+	Run()
 }
 
 func main() {
 	examples := [...]Example{
-		{"Test drive", examples.TestDrive},
-		{"List directory", examples.DirTree},
-		{"8-bit color matrix", examples.Print8BitColorMatrix},
-		{"24-bit color spectrum", examples.Rgb_matrix},
-		{"Phrase", examples.SimplePhrase},
-		{"Complex phrases", examples.ComplexPhrases},
-		{"Bright colors (utility extras)", examples.BrightColors},
+		&examples.TestDriveExample{},
+		&examples.DirectoryListingExample{},
+		&examples.ColorMatrixExample{},
+		&examples.RgbColorMatrixExample{},
+		&examples.SimplePhraseExample{},
+		&examples.ComplexPhrasesExample{},
+		&examples.UtilityExtrasExample{},
 	}
 
 	fmt.Println("Select example:")
 
 	for i, example := range examples {
-		fmt.Printf("%d) %s\n", i+1, example.Title)
+		fmt.Printf("%d) %s\n", i+1, example.GetTitle())
 	}
 
 	scanner := bufio.NewScanner(os.Stdin)
@@ -43,7 +44,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	examples[selectedExample].Func()
+	examples[selectedExample].Run()
 
 	fmt.Println()
 }

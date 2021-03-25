@@ -6,7 +6,17 @@ import (
 	"github.com/go-color-term/go-color-term/coloring"
 )
 
-func BrightColors() {
+type UtilityExtrasExample struct{}
+
+func (example *UtilityExtrasExample) GetTitle() string {
+	return "Bright colors (utility extras)"
+}
+
+func (example *UtilityExtrasExample) GetDescription() string {
+	return "Example of bright color functions in utility.Extras."
+}
+
+func (example *UtilityExtrasExample) Run() {
 	fmt.Printf("%s    %s\n", coloring.BgWhite(coloring.Black("Normal black   ")), coloring.BgWhite(coloring.Extras.BrightBlack("bright black   ")))
 	fmt.Printf("%s    %s\n", coloring.Red("Normal red     "), coloring.Extras.BrightRed("bright red     "))
 	fmt.Printf("%s    %s\n", coloring.Green("Normal green   "), coloring.Extras.BrightGreen("bright green   "))
