@@ -20,6 +20,7 @@ func main() {
 		{"Test drive", examples.TestDrive},
 		{"List directory", examples.DirTree},
 		{"8-bit color matrix", examples.Print8BitColorMatrix},
+		{"24-bit color spectrum", examples.Rgb_matrix},
 		{"Phrase", examples.SimplePhrase},
 		{"Complex phrases", examples.ComplexPhrases},
 		{"Bright colors (utility extras)", examples.BrightColors},
