@@ -37,7 +37,7 @@ func main() {
 	scanner.Scan()
 
 	selectedExample, err := strconv.Atoi(scanner.Text())
-	selectedExample -= 1
+	selectedExample--
 
 	if err != nil || selectedExample < 0 || selectedExample > len(examples)-1 {
 		fmt.Println(coloring.Bold("Example not found!"))
