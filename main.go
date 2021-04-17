@@ -40,17 +40,9 @@ func main() {
 
 		text := strings.TrimSpace(scanner.Text())
 		if text == "" {
-			fmt.Println(coloring.Sentence().
-				BoldStart().
-				Text("Thanks for trying ").
-				ItalicStart().
-				Color("go", coloring.BRIGHTBLUE).
-				Text("-").
-				Color("color", coloring.BRIGHTRED).
-				Text("-").
-				Color("term", coloring.BRIGHTGREEN).
-				ItalicEnd().
-				Text(". Goodbye!"))
+			fmt.Println(
+				coloring.Tagged("<b>Thanks for trying <i><blue bright>go</blue>-<red bright>color</red>-<green bright>term</green></i>. Goodbye!</b>"),
+			)
 
 			os.Exit(1)
 		}
